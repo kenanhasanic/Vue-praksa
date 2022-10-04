@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app>
+    <v-container>
+
+      <Header />
+      <div class="paddingDiv"></div>
+      <router-view></router-view>
+
+    </v-container>
+  </v-app>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+<script>
+import Header from './components/Header/Header.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Header
+  },
+  data: () => ({
+    drawer: false,
+    items: [
+      { title: 'View Meetups', icon: 'mdi-account-group' },
+      { title: 'Organize Meetup', icon: 'mdi-map-marker' },
+      { title: 'Profile', icon: 'mdi-account' },
+      { title: 'Sign up', icon: 'mdi-face' },
+      { title: 'Sign in', icon: 'mdi-lock-open' },
+    ],
+  }),
+};
 </script>
 
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .paddingDiv{
+    padding-top: 100px
+  }
 </style>
+
